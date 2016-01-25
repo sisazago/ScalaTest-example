@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+extraProperties=sonar.host.url\=http\://172.250.9.34\:8082/sonar
+projectKey=ScalaTestExample\:ScalaTestExample
+serverUrl=http\://localhost\:9000
+version=2
