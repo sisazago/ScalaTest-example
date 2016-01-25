@@ -26,7 +26,7 @@ object StoriesGenerator {
   }
   
   val allOptions = List("Search",
-    	"Search Result",
+    	"Search Results",
     	"Load Page")
     	
   val loadPage = "Load Page"
@@ -34,10 +34,10 @@ object StoriesGenerator {
   val initialStep = List(loadPage)
   
   val step1Step01 = List("Search")
-  val step1Step02 = List("Search Result")
+  val step1Step02 = List("Search Results")
   
   val map = Map("Load Page" -> step1Step01,
-      "Search Result" -> step1Step02)
+      "Search Results" -> step1Step02)
       
   val inputDir = """src\main\resources\input"""
   val outputDir = """src\main\resources\generated_user_stories"""
@@ -73,7 +73,7 @@ object StoriesGenerator {
   def validateTemplate(testFile:String) {
         val file = io.Source.fromFile(testFile, "UTF-8").getLines.toList
     val buff = new ListBuffer[Verificacion]
-    if(file.head != "ID	VERIFICTION	DETAIL 2 DETAIL	RESULT"){
+    if(file.head != "ID	VERIFICTION	DETAIL	2 DETAIL	RESULT"){
       printHtmlTitle("<font color='red'>HEADER DOESN'T MATCH</font>")
       printHtmlFooter
       outWriter.close()
@@ -96,10 +96,8 @@ object StoriesGenerator {
         case "Search" =>
           val detalle = if ( elem.detalle.nonEmpty )
             printHtml(s"To have the option of searching ${elem.detalle}.")
-          else
-            printHtml(s"Al verificar la estructura me sean mostrado el mensaje ${elem.detalle}.")
         case "Search Results" =>
-          printHtml(s"Ver los errrores del campo ${elem.detalle}.")
+          printHtml(s"Find the text ${elem.detalle}.")
         case _ =>
           throw new IllegalArgumentException(s"The step ${elem.id} is not valid, please correct the step!")
       }
