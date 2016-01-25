@@ -149,7 +149,7 @@ object StoriesGenerator {
                   case Verificacion(_,accionSearchResult,_,_) if (step1Step02).contains(accionSearchResult) =>
                     validateAndPrint(elem)
                   case _ =>
-                    printHtml(s"ERROR: The element '${$elem.id}' is not valid.")
+                    printHtml(s"ERROR: The element $elem.id is not valid.")
                     errorCount += 1
                 }
               }
